@@ -1,0 +1,139 @@
+
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.footprints,fadings,calc,trees,mindmap,shadows,decorations.text,patterns,positioning,shapes,matrix,fit}
+\usetikzlibrary{arrows,shadows,backgrounds}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning,fit}
+%\usetikzlibrary{automata}
+%\usetikzlibrary{matrix}
+\usetikzlibrary{shapes.symbols,shapes.misc,shapes.arrows}
+\usetikzlibrary{matrix,chains,scopes,decorations.pathmorphing}
+%\usetikzlibrary{bayesnet}
+
+%\DeclareCaptionSubType[alph]{figure}
+%\captionsetup[figure]{labelsep=colon}
+%\captionsetup[subfigure]{labelformat=brace,labelsep=space,labelfont=bf}
+%\floatsetup[subfigure]{capposition=bottom,heightadjust=all,valign=c}
+\captionsetup[subfigure]{justification=centering}
+
+\crefname{section}{Section}{Sections}
+\crefname{subsection}{Section}{Sections}
+\crefname{algorithm}{Algorithm}{Algorithms}
+\crefname{definition}{Definition}{Definitions}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{example}{Example}{Examples}
+
+\newcommand{\fml}[1]{{\mathcal{#1}}}
+\newcommand{\set}[1]{\{ #1 \}}
+\newcommand{\fcall}[1]{{\texttt{#1}}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\tn}[1]{\textnormal{#1}}
+\newcommand{\tsf}[1]{\textsf{#1}}
+\newcommand{\mfrak}[1]{\ensuremath\mathfrak{#1}}
+\newcommand{\mfrk}[1]{{\ensuremath\mathfrak{#1}}}
+\newcommand{\msf}[1]{\ensuremath\mathsf{#1}}
+\newcommand{\mbf}[1]{\ensuremath\mathbf{#1}}
+\newcommand{\mbb}[1]{\ensuremath\mathbb{#1}}
+%\newcommand{\vset}[1]{\mathbb{#1}}
+%\newcommand{\vset}[1]{\mathbb{#1}}
+%\newcommand{\vset}[1]{\mathfrak{#1}}
+\newcommand{\vset}[1]{\mathbf{\lowercase{#1}}}
+
+\newcommand{\clnot}{\ensuremath\color{midgreen}{\mathbf{N}}}
+\newcommand{\clyes}{\ensuremath\color{midred}{\mathbf{Y}}}
+
+\DeclareMathOperator*{\nentails}{\nvDash}
+\DeclareMathOperator*{\entails}{\vDash}
+\DeclareMathOperator*{\lequiv}{\leftrightarrow}
+\DeclareMathOperator*{\limply}{\rightarrow}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\outdeg}{\tn{deg}^{\tn{+}}}
+
+\newcommand{\oper}[1]{\ensuremath\textnormal{\smaller{\textsf{#1}}}}
+\newcommand{\encode}{\oper{Enc}}
+\newcommand{\tencode}{\encode_{\fml{T}}}
+%\newcommand{\consistent}{\oper{Consistent}}
+\newcommand{\valid}{\oper{Valid}}
+\newcommand{\outc}{\oper{outc}}
+
+%\newcommand{\consistent}{\textbf{CO}}
+%\DeclareMathOperator*{\consistent}{\mathbf{CO}\!}
+\DeclareMathOperator*{\textco}{\textnormal{\bfseries{\textsf{CO}}}}
+\DeclareMathOperator*{\consistent}{\textnormal{\bfseries{\textsf{CO}}}}
+
+\newcommand{\tbf}[1]{\textnormal{\bfseries #1}}
+
+\newcommand{\nnf}{\ensuremath\tn{NNF}}
+\newcommand{\dnnf}{\ensuremath\tn{DNNF}}
+\newcommand{\ddnnf}{\ensuremath\tn{d-DNNF}}
+\newcommand{\sddnnf}{\ensuremath\tn{sd-DNNF}}
+\newcommand{\decnnf}{\ensuremath\tn{dec-DNNF}}
+%
+\newcommand{\bnnf}{\ensuremath\textnormal{\bf NNF}}
+\newcommand{\bdnnf}{\ensuremath\textnormal{\bf DNNF}}
+\newcommand{\bddnnf}{\ensuremath\textnormal{\bf d-DNNF}}
+\newcommand{\bsddnnf}{\ensuremath\textnormal{\bf sd-DNNF}}
+\newcommand{\bdecnnf}{\ensuremath\textnormal{\bf dec-DNNF}}
+
+\newcommand{\isweakaxp}{\ensuremath\mathsf{isWeakAXp}}
+\newcommand{\isweakcxp}{\ensuremath\mathsf{isWeakCXp}}
+\newcommand{\isvalid}{\ensuremath\mathsf{isValid}}
+\newcommand{\isconsistent}{\ensuremath\mathsf{isConsistent}}
+
+\newcommand{\onexp}{\ensuremath\mathsf{oneXP}}
+
+\newcommand{\predicate}{\mbb{P}}
+
+\newcommand{\ddp}{\tn{D}^{\tn{P}}}
+%
+\newcommand{\ttwop}{\Theta_2^\tn{P}}
+\newcommand{\dtwop}{\Delta_2^\tn{P}}
+\newcommand{\stwop}{\Sigma_2^\tn{P}}
+%
+\newcommand{\pnp}{\tn{P}^{\tn{NP}}}
+\newcommand{\pnppar}{\tn{P}^{\tn{NP}}_{||}}
+\newcommand{\pnplog}{\tn{P}^{\tn{NP}}[\fml{O}(\log n)]}
+%
+\newcommand{\fpnp}{\tn{FP}^{\tn{NP}}}
+\newcommand{\fpnpgen}{\tn{FP}^{\tn{NP}}[q(n)]}
+\newcommand{\fpnppar}{\tn{FP}^{\tn{NP}}_{||}}
+\newcommand{\fpnplog}{\tn{FP}^{\tn{NP}}[\fml{O}(\log n)]}
+
+%\newcommand{\frmeq}[1]{\begin{empheq}[box={\fboxsep=1.5pt\doublebox}]{flalign*}#1\end{empheq}}
+%\newcommand{\frmeq}[1]{\begin{empheq}[box={\fboxsep=1.5pt\frame}]{flalign*}#1\end{empheq}}
+\newcommand{\frmeq}[1]{\begin{empheq}[box={\fboxsep=1.0pt}]{flalign*}#1\end{empheq}}
+
+\definecolor{gray}{rgb}{.4,.4,.4}
+\definecolor{midgrey}{rgb}{0.5,0.5,0.5}
+\definecolor{middarkgrey}{rgb}{0.35,0.35,0.35}
+\definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
+\definecolor{midred}{rgb}{0.7,0.2,0.2}
+\definecolor{darkred}{rgb}{0.7,0.1,0.1}
+\definecolor{midblue}{rgb}{0.2,0.2,0.7}
+\definecolor{darkblue}{rgb}{0.1,0.1,0.5}
+\definecolor{midgreen}{rgb}{0.2,0.5,0.2}
+\definecolor{darkgreen}{rgb}{0.1,0.5,0.1}
+\definecolor{defseagreen}{cmyk}{0.69,0,0.50,0}
+%\newcommand{\jnote}[1]{\textlbrackdbl\textcolor{darkred}{joao}: \emph{\textcolor{midgrey}{#1}}\textrbrackdbl}
+\newcommand{\jnote}[1]{\medskip\noindent$\llbracket$\textcolor{darkred}{joao}: \emph{\textcolor{middarkgrey}{#1}}$\rrbracket$\medskip}
+
+\newcommand{\jnoteF}[1]{}
+
+\titleformat*{\paragraph}{\bfseries}
+\titlespacing{\paragraph}{0em}{*1.5}{0.75em}
+
+\newboolean{addfile}
+\setboolean{addfile}{true}   
+\newcommand{\addcond}[1]{\ifthenelse{\boolean{addfile}}{#1}{}}
+
+\newboolean{issurvey}
+\setboolean{issurvey}{false}   
+\newcommand{\ifsurvey}[1]{\ifthenelse{\boolean{issurvey}}{#1}{}}
+
+\tikzset{
+  0 my edge/.style={densely dashed, my edge},
+  my edge/.style={-{Stealth[]},thin},
+}
+
