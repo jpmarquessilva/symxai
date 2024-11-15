@@ -1,0 +1,23 @@
+
+\section{Introduction}
+
+Some definitions from~\cite{CooperMS23}.
+
+\begin{definition}
+An abductive explanation (AXp) of the decision $\kappa(\mathbf{a}) = c$ is a subset-minimal set $\mathcal{P} \subseteq \mathcal{A}$, denoting feature literals,
+i.e. feature-value pairs (taken from $a$), such that
+
+$$\forall (\mathbf{x} \in \mathbb{F}). \left( \left( \bigwedge_{j \in \mathcal{P}} (x_j = a_j) \right) \to \kappa(\mathbf{x}) = c \right)$$
+
+\end{definition}
+
+
+In the context of constraints $C$, an abductive explanation of a
+decision $\kappa(\mathbf{a}) = c$ is now a subset-minimal set $\mathcal{P} \subseteq \mathcal{A}$ of feature literals such that
+
+$$\forall (\mathbf{x} \in \mathbb{F}). \left( C(\mathbf{x}) \land \bigwedge_{j \in \mathcal{P}} (x_j = a_j) \right) \to \kappa(\mathbf{x}) = c $$
+
+\begin{proposition}[Proposition 3 in~\cite{CooperMS23}]
+    A set of literals $P$ is an abductive explanation of the decision $\kappa(\mathbf{a}) = c$ under constraints $C$ if and only if it is an
+abductive explanation of the unconstrained decision $(\kappa(\mathbf{a}) = c) \lor \neg C(\mathbf{a})$.
+\end{proposition}
