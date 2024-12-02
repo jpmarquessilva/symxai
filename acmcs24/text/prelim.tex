@@ -1,5 +1,11 @@
+% ----------------------------------------------- %
+%
 \section{Preliminaries} \label{sec:prelim}
+%
+% ----------------------------------------------- %
 
+
+SUMMARY OF THE SECTION - TO BE DELETED BEFORE SUBMISSION:
 \begin{itemize}
 \item Common Definifions:
 
@@ -33,3 +39,57 @@ MR - Regression model
 Goal: to compute explanations for (v, c)
 
 \end{itemize}
+
+
+% ----------------------------------------------- %
+
+This section provides the basic notation used throughout the paper.
+%
+The goal is to provide explanations to ML models.
+%
+These are defined on a set of $m$ features (or attributes) $\fml{F}=\{1,\ldots,m\}$.
+%
+Each feature $i\in \fml{F}$ takes values from its associated domain $D_i$.
+%
+Domains can be categorical or ordinal, with values that can be Boolean, integer or real.
+%
+The feature space $\mbb{F}$ is defined by the Cartesian product of the domains as $\mbb{F}=D_1\times\ldots\times D_m$.
+%
+The notation $\mbf{x}=(x_1,\ldots,x_m)$ represents an arbitrary point in the feature space, where each $x_i$ is a variable taking values from $D_i$.
+%
+Moreover, $\mbf{v}=(v_1,\ldots,v_m)$ represents a specific point in the feature space, where each $v_i$ is such that $v_i \in D_i$ (a concrete value).
+
+In the paper, the ML models considered are either Classification or Regression ML models described in the following paragraphs.
+
+% ----------------------------------------------- %
+\paragraph{Classification Problems.}
+
+Classification problems are ML models that besides the set of features are defined on set of $K$ classes $\fml{K}=\{c_1,\ldots,c_K\}$.
+%
+An ML classifier $\fml{M}_C$ is characterized by a (non-constant) classification function $\kappa:\mbb{F}\to\fml{K}$ mapping feature space points into classes.
+%
+A classifier $\fml{M}_C$ is represented by the tuple $\fml{M}_C=(\fml{F}, \mbb{F}, \fml{K}, \kappa)$.
+%
+Observe that, the classification function represents the operation (or behavior) of the ML classifier, i.e. the machine learning model.
+
+
+Given a classifier $\fml{M}_C$, a point $\mbf{v}\in\mbb{F}$, and a class $c\in\fml{K}$ such that $c=\kappa(v)$, an instance (for the classifier) is defined as $(\mbf{v},c)$.
+
+% ----------------------------------------------- %
+\paragraph{Regression Problems.}
+
+Regression problems are ML models defined on the set of features and consider a (non-constant) regression function $\rho:\mbb{F}\to\fml{V}$, where $\fml{V}$ is a continuous set (codomain of $\rho$).
+%
+A regression model $\fml{M}_R$ is represented by the tuple $\fml{M}_R=(\fml{F}, \mbb{F}, \fml{V}, \rho)$.
+
+
+Given a regression model $\fml{M}_R$, a point $\mbf{v}\in\mbb{F}$, and a value $q\in\fml{V}$ such that $q=\rho(v)$, an instance (for the regression) is defined as $(\mbf{v},q)$.
+
+
+% ----------------------------------------------- %
+\paragraph{General Problem Formulation}
+
+
+The similarity predicate
+
+
