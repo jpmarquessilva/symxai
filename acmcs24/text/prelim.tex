@@ -64,32 +64,55 @@ In the paper, the ML models considered are either Classification or Regression M
 % ----------------------------------------------- %
 \paragraph{Classification Problems.}
 
-Classification problems are ML models that besides the set of features are defined on set of $K$ classes $\fml{K}=\{c_1,\ldots,c_K\}$.
+Classification problems are ML models that besides the set of features are defined on set of $K$ classes $\mbb{K}=\{c_1,\ldots,c_K\}$.
 %
-An ML classifier $\fml{M}_C$ is characterized by a (non-constant) classification function $\kappa:\mbb{F}\to\fml{K}$ mapping feature space points into classes.
+An ML classifier $\fml{M}_C$ is characterized by a (non-constant) classification function $\kappa:\mbb{F}\to\mbb{K}$ mapping feature space points into classes.
 %
-A classifier $\fml{M}_C$ is represented by the tuple $\fml{M}_C=(\fml{F}, \mbb{F}, \fml{K}, \kappa)$.
+A classifier $\fml{M}_C$ is represented by the tuple $\fml{M}_C=(\fml{F}, \mbb{F}, \mbb{K}, \kappa)$.
 %
-Observe that, the classification function represents the operation (or behavior) of the ML classifier, i.e. the machine learning model.
+Observe that, the classification function represents the operation (or behaviour) of the ML classifier, i.e. the machine learning model.
 
 
-Given a classifier $\fml{M}_C$, a point $\mbf{v}\in\mbb{F}$, and a class $c\in\fml{K}$ such that $c=\kappa(v)$, an instance (for the classifier) is defined as $(\mbf{v},c)$.
+Given a classifier $\fml{M}_C$, a point $\mbf{v}\in\mbb{F}$, and a class $c\in\mbb{K}$ such that $c=\kappa(v)$, an instance (for the classifier) is defined as $(\mbf{v},c)$.
 
 % ----------------------------------------------- %
 \paragraph{Regression Problems.}
 
-Regression problems are ML models defined on the set of features and consider a (non-constant) regression function $\rho:\mbb{F}\to\fml{V}$, where $\fml{V}$ is a continuous set (codomain of $\rho$).
+Regression problems are ML models defined on the set of features and consider a (non-constant) regression function $\rho:\mbb{F}\to\mbb{V}$, where $\mbb{V}$ is a continuous set (codomain of $\rho$).
 %
-A regression model $\fml{M}_R$ is represented by the tuple $\fml{M}_R=(\fml{F}, \mbb{F}, \fml{V}, \rho)$.
+A regression model $\fml{M}_R$ is represented by the tuple $\fml{M}_R=(\fml{F}, \mbb{F}, \mbb{V}, \rho)$.
 
 
-Given a regression model $\fml{M}_R$, a point $\mbf{v}\in\mbb{F}$, and a value $q\in\fml{V}$ such that $q=\rho(v)$, an instance (for the regression) is defined as $(\mbf{v},q)$.
+Given a regression model $\fml{M}_R$, a point $\mbf{v}\in\mbb{F}$, and a value $q\in\mbb{V}$ such that $q=\rho(v)$, an instance (for the regression) is defined as $(\mbf{v},q)$.
 
 
 % ----------------------------------------------- %
-\paragraph{General Problem Formulation}
+\paragraph{General Problem Formulation.}
+
+Classification and Regression problems are generalized into a General Problem  Formulation.
+%
+A General Problem Formulation is defined by the set of features $\fml{F}$ and a range $\mbb{T}$ of possible predictions.
+%
+Additionally, a non-constant function $\tau:\fml{F}\to\mbb{T}$ maps feature space points into possible prediction outcomes.
 
 
-The similarity predicate
+A General model $\fml{M}$ is represented by the tuple $\fml{M}=(\fml{F}, \mbb{F}, \mbb{T}, \tau)$.
+%
+Similarly, given a model $\fml{M}$, a point $\mbf{v}\in\mbb{F}$, and a value $q\in\mbb{T}$ such that $q=\tau(v)$, an instance is defined as $(\mbf{v},q)$.
 
 
+To be able to compare the prediction's outcome of a variable point $(\mbf{x})$ to the prediction of a given (constant) point $(\mbf{v}\in\mbb{F}$), it is advantageous to define the Similarity predicate $\sigma:\mbb{F}\to\{\top, \bot\}$.
+%
+In the case of Classification models, the Similarity predicate is defined as follows:
+%
+$$
+\sigma(\mbf{x}):=[\kappa(\mbf{x}) = \kappa(\mbf{v})]
+$$
+%
+In the case of Regression models, the Similarity predicate is defined as follows:
+%
+$$
+\sigma(\mbf{x}):=[|\rho(\mbf{x}) - \rho(\mbf{v})| \leq \delta]
+$$
+%
+where $\delta$ is an additional user-specified parameter.
