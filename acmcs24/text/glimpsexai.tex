@@ -17,8 +17,8 @@ Both methods attempt to learn scores for the features,
 but while LIME is based on iterative sampling, SHAP is based on
 approximate computation of Shapley values~\cite{shapley53}. 
 %
-RISE~\cite{Petsiuk-corr18} is a method that generates numerous masks 
-and applies them to the input image to measure the importance of each pixel.
+%RISE~\cite{Petsiuk-corr18} is a method that generates numerous masks 
+%and applies them to the input image to measure the importance of each pixel.
 
 \item[Feature selection:]
 The purpose of feature selection is to identify a set of features
@@ -26,18 +26,24 @@ that is sufficient for the prediction, i.e. if the set of features is fixed to t
 given values, then the prediction is known, independently of the values of the
 other features. An example of a feature selection method is Anchors~\cite{guestrin-aaai18},
 which is based on sampling.
+\end{description}
 
-\item[Hybrid approaches:]
-\begin{itemize}
-\item Saliency maps~\cite{muller-ieee-proc21}
-\end{itemize}
+% \paragraph{Hybrid approaches:} Saliency maps~\cite{muller-ieee-proc21}
 
-\item[Intrinsic interpretability:] the (interpretable) model is the explanation 
-
-Besides feature attribution and selection, another approach to explainability is intrinsic interpretability [66, 59, 67], where the ML model, due to being
-interpretable, serves as the explanation. For example, this is the case of decision trees [12], decision sets [45], or other graph-based ML models [27], which
-are considered to be naturally interpretable. In such cases, some sort of manual inspection of the model itself produces an explanation for the prediction.
-Despite the apparent simplicity of the models, recent works [43, 56] have
+% \paragraph{Intrinsic interpretability:} the (interpretable) model is the explanation 
+%
+Besides feature attribution and selection, another approach to explainability 
+is intrinsic interpretability \cite{rudin-naturemi19,molnar-bk20,rudin-ss22}, 
+where the ML model, due to being interpretable, serves as the explanation. 
+%
+For example, this is the case of decision trees~\cite{breiman-ss01}, 
+decision sets~\cite{leskovec-kdd16}, or other graph-based ML models~\cite{HuangII021}, 
+which are considered to be naturally interpretable. 
+In such cases, some sort of manual inspection of the model itself produces 
+an explanation for the prediction.
+%
+Despite the apparent simplicity of the models, recent 
+works~\cite{IzzaIM22,MarquesSilvaI23} have
 demonstrated that even intrinsic interpretable models should be explained
 (at least in terms of obtaining shorter and succinct explanations).
 
@@ -45,5 +51,3 @@ demonstrated that even intrinsic interpretable models should be explained
 \item Decision trees
 \item Rule-based models: DL, DS, etc.
 \end{itemize}
-
-\end{description}
