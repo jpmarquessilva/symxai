@@ -1,28 +1,31 @@
 \section{A  Glimpse of XAI} \label{sec:glimpsexai}
 
-This section is to contain description of rel work on Basics of (non-symbolic) XAI. 
+This section is to contain a description of related work on 
+Basics of (non-symbolic) XAI.
+%
 Methods of XAI can be broadly categorized as those targeting feature
 attribution and those targeting feature selection:
 
 \begin{description} 
 \item[Feature attribution:] %assign relative importance to features
 %
-The goal of feature
-attribution is to assign a score to each feature, measuring the feature’s contribution to a given prediction. Examples of feature attribution methods are
+The goal of feature attribution is to assign a score to each feature, 
+measuring the feature's contribution to a given prediction. 
+Examples of feature attribution methods are
 LIME~\cite{guestrin-kdd16} and SHAP~\cite{lundberg-nips17}. 
-Both methods attempt to learn scores for the
-features, but while LIME is based on iterative sampling, SHAP is based on
+Both methods attempt to learn scores for the features, 
+but while LIME is based on iterative sampling, SHAP is based on
 approximate computation of Shapley values~\cite{shapley53}. 
 %
-RISE~\cite{Petsiuk-corr18} is a method that generates a large number of masks and applies them to the input image to measure the importance of each pixel.
+RISE~\cite{Petsiuk-corr18} is a method that generates numerous masks 
+and applies them to the input image to measure the importance of each pixel.
 
 \item[Feature selection:]
-the purpose of feature selection is to identify a set of features
+The purpose of feature selection is to identify a set of features
 that is sufficient for the prediction, i.e. if the set of features is fixed to their
 given values, then the prediction is known, independently of the values of the
 other features. An example of a feature selection method is Anchors~\cite{guestrin-aaai18},
-which similar to other methods is based on sampling.
-
+which is based on sampling.
 
 \item[Hybrid approaches:]
 \begin{itemize}
